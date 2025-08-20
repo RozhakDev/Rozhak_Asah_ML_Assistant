@@ -1,0 +1,26 @@
+name: Rozhak Asah ML Daily Check-In
+
+on:
+  schedule:
+    - cron: '05 10 * * *'   # JAM 08:00 PAGI WIB, UTC+7
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Bot Script
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: python src/bot.py
