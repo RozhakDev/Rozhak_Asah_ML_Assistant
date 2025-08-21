@@ -2,7 +2,7 @@ name: Rozhak Asah ML Daily Check-In
 
 on:
   schedule:
-    - cron: '05 10 * * *'   # JAM 08:00 PAGI WIB, UTC+7
+    - cron: '0 1 * * *'   # JAM 08:00 PAGI WIB, UTC+7
   workflow_dispatch:
 
 jobs:
